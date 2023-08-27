@@ -36,7 +36,7 @@ pipeline{
         stage('quality gate status check'){
             steps{
                 script{
-                  waitForQualityGate abortPipeline: false, credentialsId: 'sonartoken'
+                  waitForQualityGate abortPipeline: true, credentialsId: 'sonartoken'
                 }
                 
             }
