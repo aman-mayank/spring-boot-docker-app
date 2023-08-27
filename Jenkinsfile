@@ -73,5 +73,16 @@ pipeline{
             sh "docker tag $JOB_NAME:v1.$BUILD_ID amanmayank97/$JOB_NAME:latest"
         }
     }
+
+        stage('push image to dockerhub'){
+        steps{
+            withCredentials([string(credentialsId: 'dockerpsw', variable: 'dockerpwd')]) {
+              sh "docker login -u amanmayank97 -p ${dockerpwd}"
+              sh "docker push amanmayank97/$JOB_NAME:v1.$BUILD_ID"
+              sh "docker push amanmayank97/$JOB_NAME:latest"
+           }
+        }
+    }
+
     }
 }
