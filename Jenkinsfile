@@ -52,8 +52,7 @@ pipeline{
                     [artifactId: 'spring-boot-docker-app',
                      classifier: '',
                       file: 'target/spring-boot-docker-app.jar',
-                       type: 'jar'
-                       ]
+                       type: 'jar']
                     ],
                      credentialsId: 'nexus-credentials', 
                      groupId: 'com.example', 
