@@ -65,5 +65,13 @@ pipeline{
                 
             }
         }
+
+         stage('create image'){
+        steps{
+            sh "docker build -t $JOB_NAME:v1.$BUILD_ID ." 
+            sh "docker tag $JOB_NAME:v1.$BUILD_ID amanmayank97/$JOB_NAME:v1.$BUILD_ID"
+            sh "docker tag $JOB_NAME:v1.$BUILD_ID amanmayank97/$JOB_NAME:latest"
+        }
+    }
     }
 }
