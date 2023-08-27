@@ -82,7 +82,7 @@ pipeline{
               sh "docker push amanmayank97/$JOB_NAME:latest"
            }
         }
-
+        }
         stage('k8s deploy'){
         steps{
             sh 'kubectl apply -f deployment.yml'
