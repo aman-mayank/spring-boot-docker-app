@@ -32,5 +32,11 @@ pipeline{
               }
             }
         }
+
+        stage('quality gate status check'){
+            steps{
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonartoken'
+            }
+        }
     }
 }
